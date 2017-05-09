@@ -3,7 +3,6 @@
 CC=arm-linux-gnueabi-gcc #crossbuild
 LD = arm-linux-gnueabi-ld
 CFLAGS= -g -Wall
-
 VERSION=1.0.7
 
 TARGET=libSerialFunc.so
