@@ -26,7 +26,7 @@
 #include <linux/serial.h>
 #include "serialfunc.h"
 
-#define LIB_SERIAL_VERSION	"1.0.6"
+#define LIB_SERIAL_VERSION	"1.0.7"
 
 static struct termios oldtio; //!< 現在のシリアルポートの設定を格納
 
@@ -316,7 +316,7 @@ int Serial_GetString( int AiPort, unsigned char *AsBuffer, int AiLen )
 ioctl( AiPort, TIOCGICOUNT, &icount);
 //printf("rx[%d] tx[%d] Error:frame[%d] overrun[%d] parity[%d] boverrun[%d] \n", icount.rx, icount.tx, icount.frame, icount.overrun, icount.parity, icount.buf_overrun);
 
-	iRet = read( AiPort, AsBuffer, AiLen );
+	iRet = read( AiPort, (char *)AsBuffer, AiLen );
 
 	return iRet;
 }
@@ -338,7 +338,7 @@ int Serial_PutString( int AiPort, unsigned char *AsBuffer, int AiLen )
 	//return 0;
 	DbgPrint("<Serial PutString AsBuf %s , Len : %d \n", AsBuffer, AiLen );
 
-	return write( AiPort, AsBuffer, AiLen );
+	return write( AiPort, (char *)AsBuffer, AiLen );
 }
 
 //////////////////////////////////////////////////////////////////////////////
