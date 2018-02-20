@@ -38,7 +38,7 @@ static struct termios oldtio; //!< 現在のシリアルポートの設定を格
 */
 /// @{
 
-#if 1
+#if 0
 #define DbgPrint(fmt...)	printf(fmt)
 #else
 #define DbgPrint(fmt...)	do { } while (0)
